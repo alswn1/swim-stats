@@ -1,7 +1,9 @@
+import Header from "../components/Header";
+
 const Log = () => {
   return (
     <div>
-      Log
+      <Header />
     </div>
   )
 }

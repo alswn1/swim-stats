@@ -1,7 +1,9 @@
+import Header from "../components/Header";
+
 const Map = () => {
   return (
     <div>
-      Map
+      <Header />
     </div>
   )
 }
