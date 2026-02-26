@@ -5,7 +5,7 @@ import './LogList.css'
 const LogList = () => {
   return (
     <div className="LogList">
-      <Button text='새로운 수영 기록하기' type='NEW' onClick={() => { console.log('go to create new log page') }} />
+      <Button text='새로운 수영 기록하기' font='black-han' type='NEW' onClick={() => { console.log('go to create new log page') }} />
       <div className='list_wrapper do-hyeon'>
         <div className='list_category'>
           <div>날짜</div>

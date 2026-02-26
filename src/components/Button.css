@@ -5,3 +5,22 @@
   border-radius: 10px;
   color: white;
 }
+
+.Button_REGISTER {
+  width: 250px;
+  height: 25px;
+  border: 1px solid #6F8189;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.Button_LOGIN {
+  width: 250px;
+  height: 25px;
+  font-size: 12px;
+  background-color: #007FC5;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}

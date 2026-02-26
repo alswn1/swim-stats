@@ -2,13 +2,15 @@ import './Button.css'
 
 interface ButtonProps {
   text: string,
+  font: string,
   type: string,
+  loading: boolean,
   onClick: () => void,
 }
 
-const Button = ({ text, type, onClick }: ButtonProps) => {
+const Button = ({ text, font, type, loading, onClick }: ButtonProps) => {
   return (
-    <button onClick={onClick} className={`black-han Button Button_${type}`}>{text}</button>
+    <button onClick={onClick} disabled={loading} className={`${font} Button Button_${type}`}>{text}</button>
   )
 }
 
