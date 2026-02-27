@@ -8,6 +8,7 @@ import Log from './pages/Log'
 import Map from './pages/Map'
 import Mypage from './pages/Mypage'
 import Login from './pages/auth/Login'
+import Register from './pages/auth/Register'
 
 function App() {
   // 로그인 상태: null(확인중) -> false(로그아웃) -> true(로그인됨)
@@ -52,6 +53,7 @@ function App() {
           // 로그아웃 됨
           <>
             <Route path={PATHS.LOGIN} element={<Login />} />
+            <Route path={PATHS.REGISTER} element={<Register />} />
             <Route path='*' element={<Navigate to={PATHS.LOGIN} />} />
           </>
         )}

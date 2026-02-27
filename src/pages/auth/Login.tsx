@@ -2,10 +2,12 @@ import './Login.css'
 import { ICON_SVG } from '../../constants/assets';
 import LoginForm from '../../components/LoginForm';
 import Button from '../../components/Button';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';
 
 const Login = () => {
+  const nav = useNavigate();
+
   return (
     <div className="Login">
       <div dangerouslySetInnerHTML={{ __html: ICON_SVG }} />
@@ -18,7 +20,7 @@ const Login = () => {
       </div>
       <LoginForm />
       <hr className='w-full border-t border-slate-200' />
-      <Button text='회원가입' font='do-hyeon' type='REGISTER' loading={false} onClick={() => { <Navigate to={PATHS.REGISTER} /> }} />
+      <Button text='회원가입' font='do-hyeon' type='REGISTER' onClick={() => { nav(PATHS.REGISTER) }} />
     </div>
   )
 }

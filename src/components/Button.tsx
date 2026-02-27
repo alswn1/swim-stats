@@ -4,8 +4,8 @@ interface ButtonProps {
   text: string,
   font: string,
   type: string,
-  loading: boolean,
-  onClick: () => void,
+  loading?: boolean,
+  onClick?: () => void,
 }
 
 const Button = ({ text, font, type, loading, onClick }: ButtonProps) => {

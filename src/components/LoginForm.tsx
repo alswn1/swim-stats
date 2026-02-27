@@ -64,7 +64,7 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <Button text={loading ? '로그인 중...' : '로그인'} font='do-hyeon' type='LOGIN' loading={loading} onClick={() => { }} />
+        <Button text={loading ? '로그인 중...' : '로그인'} font='do-hyeon' type='LOGIN' loading={loading} />
       </form>
       {
         showToast && (
