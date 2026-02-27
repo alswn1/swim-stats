@@ -34,7 +34,7 @@ const LoginForm = () => {
   return (
     <div className='relative'>
       <form className='LoginForm' onSubmit={handleLogin}>
-        <div>
+        <div className='drop-shadow-lg'>
           <div className="space-y-2">
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
