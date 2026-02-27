@@ -8,7 +8,7 @@ const Login = () => {
   const nav = useNavigate();
 
   return (
-    <div className="w-1/2 bg-[#FDFEFE] flex flex-col gap-10 justify-center items-center m-auto mt-28 p-14 rounded-xl">
+    <div className="w-1/2 card-bg flex flex-col gap-10 justify-center items-center m-auto mt-28 p-14 rounded-xl">
       <div dangerouslySetInnerHTML={{ __html: ICON_SVG }} />
       <div className='black-han flex flex-col text-center'>
         <div className='text-4xl'>Swim Stats</div><br />

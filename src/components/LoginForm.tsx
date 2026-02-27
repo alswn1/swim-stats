@@ -1,4 +1,3 @@
-import './LoginForm.css'
 import React, { useState } from 'react'
 import { Mail, Lock } from 'lucide-react'
 import { supabase } from '../lib/supabase'
@@ -46,9 +45,9 @@ const LoginForm = () => {
 
   return (
     <div className='relative'>
-      <form className='LoginForm' onSubmit={handleLogin}>
+      <form className='w-96 flex flex-col gap-8 items-center' onSubmit={handleLogin}>
         <div className='drop-shadow-lg'>
-          <div className="space-y-2">
+          <div>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
               <input

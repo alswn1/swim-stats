@@ -10,7 +10,13 @@ interface ButtonProps {
 
 const Button = ({ text, font, type, loading, onClick }: ButtonProps) => {
   return (
-    <button onClick={onClick} disabled={loading} className={`${font} Button Button_${type}`}>{text}</button>
+    <button
+      onClick={onClick}
+      disabled={loading}
+      className={`${font} rounded-xl Button_${type}`}
+    >
+      {text}
+    </button>
   )
 }
 

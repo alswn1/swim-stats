@@ -1,5 +1,3 @@
-import './LogItem.css'
-
 const LogItem = () => {
   return (
     <div>
