@@ -1,4 +1,3 @@
-import './Login.css'
 import { ICON_SVG } from '../../constants/assets';
 import LoginForm from '../../components/LoginForm';
 import Button from '../../components/Button';
@@ -9,11 +8,11 @@ const Login = () => {
   const nav = useNavigate();
 
   return (
-    <div className="Login">
+    <div className="w-1/2 bg-[#FDFEFE] flex flex-col gap-10 justify-center items-center m-auto mt-28 p-14 rounded-xl">
       <div dangerouslySetInnerHTML={{ __html: ICON_SVG }} />
-      <div className='black-han title_wrapper'>
-        <div className='title'>Swim Stats</div><br />
-        <div className='do-hyeon sub_title'>
+      <div className='black-han flex flex-col text-center'>
+        <div className='text-4xl'>Swim Stats</div><br />
+        <div className='do-hyeon text-xl'>
           <span>가까운 수영장 정보부터<br />
             영법별 기록 분석까지 한곳에서</span>
         </div>
