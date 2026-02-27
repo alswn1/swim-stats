@@ -2,7 +2,7 @@ export const PATHS = {
   HOME: '/',
   LOGIN: '/login',
   REGISTER: '/register',
-  LOG: '/log',
+  LOG: '/log/:id',
   MAP: '/map',
   MYPAGE: '/mypage',
 } as const;

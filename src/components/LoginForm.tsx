@@ -41,7 +41,7 @@ const LoginForm = () => {
               <input
                 type="email"
                 required
-                className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-t-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-t-xl outline-none transition-all"
                 placeholder="example@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -55,7 +55,7 @@ const LoginForm = () => {
               <input
                 type="password"
                 required
-                className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-b-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-b-xl outline-none transition-all"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
