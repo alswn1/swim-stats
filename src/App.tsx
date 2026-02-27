@@ -22,7 +22,7 @@ function App() {
 
     // 로그인, 로그아웃 시 자동 감지 리스너
     // 다른 탭에서도 실시간으로 반영
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((_, session) => {
       setIsLoggedIn(!!session)
     })
 
