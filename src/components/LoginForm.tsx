@@ -31,6 +31,7 @@ const LoginForm = () => {
 
     if (!isPasswordValid) {
       triggerToast('비밀번호 규칙을 확인해주세요.');
+      setLoading(false);
       return;
     };
 
@@ -94,7 +95,7 @@ const LoginForm = () => {
       </form>
       {
         showToast && (
-          <div className='absolute -top-80 left-1/2 -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-lg text-sm animate-fade-in-up'>
+          <div className='absolute w-64 h-10 -top-80 left-1/2 -translate-x-1/2 bg-red-500 flex text-white text-center items-center justify-center px-4 py-2 rounded-lg text-sm animate-fade-in-up'>
             {errorMessage}
           </div>
         )
