@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Mail, Lock } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 import Button from './Button'
+import ToastMsg from './ToastMsg'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -9,15 +10,17 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [toastType, setToastType] = useState<'error' | 'success'>('error');
 
   const validatePassword = (pw: string) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
     return regex.test(pw);
   };
 
-  const triggerToast = (msg: string) => {
+  const triggerToast = (msg: string, type: 'error' | 'success') => {
     setErrorMessage(msg);
     setShowToast(true);
+    setToastType(type);
 
     setTimeout(() => setShowToast(false), 1500);
   };
@@ -29,7 +32,7 @@ const LoginForm = () => {
     setLoading(true);
 
     if (!isPasswordValid) {
-      triggerToast('비밀번호 규칙을 확인해주세요.');
+      triggerToast('비밀번호 규칙을 확인해주세요.', 'error');
       setLoading(false);
       return;
     };
@@ -39,12 +42,12 @@ const LoginForm = () => {
       password,
     });
 
-    if (error) triggerToast('로그인에 실패했습니다.');
+    if (error) triggerToast('로그인에 실패했습니다.', 'error');
     setLoading(false);
   };
 
   return (
-    <div className='relative'>
+    <div>
       <form className='w-96 flex flex-col gap-8 items-center' onSubmit={handleLogin}>
         <div className='drop-shadow-lg'>
           <div>
@@ -94,9 +97,7 @@ const LoginForm = () => {
       </form>
       {
         showToast && (
-          <div className='absolute w-64 h-10 -top-80 left-1/2 -translate-x-1/2 bg-red-500 flex text-white text-center items-center justify-center px-4 py-2 rounded-lg text-sm animate-fade-in-up'>
-            {errorMessage}
-          </div>
+          <ToastMsg errorMessage={errorMessage} type={toastType} />
         )
       }
     </div>
