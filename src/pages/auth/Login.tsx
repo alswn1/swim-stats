@@ -1,5 +1,5 @@
 import { ICON_SVG } from '../../constants/assets';
-import LoginForm from '../../components/LoginForm';
+import LoginForm from '../../components/auth/LoginForm';
 import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/paths';

@@ -1,9 +1,9 @@
 import { useState } from "react"
-import Button from "./Button";
-import ToastMsg from "./ToastMsg";
+import Button from "../Button";
+import ToastMsg from "../ToastMsg";
 import { useNavigate } from "react-router-dom";
-import { PATHS } from "../constants/paths";
-import { supabase } from "../lib/supabase";
+import { PATHS } from "../../constants/paths";
+import { supabase } from "../../lib/supabase";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState('');

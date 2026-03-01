@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Mail, Lock } from 'lucide-react'
-import { supabase } from '../lib/supabase'
-import Button from './Button'
-import ToastMsg from './ToastMsg'
+import { supabase } from '../../lib/supabase'
+import Button from '../Button'
+import ToastMsg from '../ToastMsg'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
