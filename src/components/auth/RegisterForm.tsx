@@ -63,15 +63,30 @@ const RegisterForm = () => {
       return;
     }
 
-    if (data.user) {
-      triggerToast('회원가입이 완료되었습니다.', 'success');
-      setTimeout(() => {
-        nav(PATHS.LOGIN);
-      }, 1500);
-    } else {
+    // Supabase는 보안상(이메일 존재 여부 노출 방지) 이미 가입된 이메일이어도
+    // error를 주지 않고 user는 내려주되, identities가 빈 배열([])로 오는 경우가 있음
+    // 이 경우 "이미 가입된 이메일"로 간주하고 가입 성공 처리하지 않음
+    const identities = data.user?.identities;
+    const isExistingEmail = Array.isArray(identities) && identities.length === 0;
+
+    if (isExistingEmail) {
+      triggerToast('이미 가입된 이메일입니다.', 'error');
+      setLoading(false);
+      return;
+    }
+
+    if (!data.user) {
       triggerToast('회원가입에 실패했습니다.', 'error');
       setLoading(false);
+      return;
     }
+
+    triggerToast('회원가입이 완료되었습니다. 이메일 인증 후 로그인해주세요.', 'success');
+
+    setLoading(false);
+    setTimeout(() => {
+      nav(PATHS.LOGIN);
+    }, 1500);
   };
 
   return (
