@@ -1,9 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { PATHS } from '../constants/paths';
 
 const Header = () => {
   const active = 'text-blue-600';
   const inactive = 'text-gray-500';
+
+  const { pathname } = useLocation();
+
+  const isLogActive = pathname === PATHS.NEW || pathname === PATHS.EDIT;
 
   return (
     <div className='black-han flex sub-bg flex-col mb-8'>
@@ -21,7 +25,7 @@ const Header = () => {
         </NavLink>
         <NavLink
           to={PATHS.LOG}
-          className={({ isActive }) => isActive ? `${active}` : `${inactive}`}>
+          className={({ isActive }) => (isActive || isLogActive) ? `${active}` : `${inactive}`}>
           기록
         </NavLink>
         <NavLink

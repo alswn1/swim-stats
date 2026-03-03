@@ -9,6 +9,8 @@ import Map from './pages/Map'
 import Mypage from './pages/Mypage'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
+import NewLog from './pages/NewLog'
+import Edit from './pages/Edit'
 
 function App() {
   // 로그인 상태: null(확인중) -> false(로그아웃) -> true(로그인됨)
@@ -45,6 +47,8 @@ function App() {
           <>
             <Route path={PATHS.HOME} element={<Home />} />
             <Route path={PATHS.LOG} element={<Log />} />
+            <Route path={PATHS.NEW} element={<NewLog />} />
+            <Route path={PATHS.EDIT} element={<Edit />} />
             <Route path={PATHS.MAP} element={<Map />} />
             <Route path={PATHS.MYPAGE} element={<Mypage />} />
             <Route path='*' element={<Navigate to={PATHS.HOME} />} />

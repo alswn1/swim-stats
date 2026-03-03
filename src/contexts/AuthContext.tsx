@@ -31,7 +31,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         setIsLoggedIn(!!session);
-        setUser(session?.user ?? user);
+        // 로그아웃 시에는 반드시 null로 비워줘야 다른 Context들도 정상적으로 리셋됩니다.
+        setUser(session?.user ?? null);
       }
     );
 
