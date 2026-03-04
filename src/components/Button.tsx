@@ -11,6 +11,7 @@ interface ButtonProps {
 const Button = ({ text, font, type, loading, onClick }: ButtonProps) => {
   return (
     <button
+      type={type === 'CANCEL' ? 'button' : 'submit'}
       onClick={onClick}
       disabled={loading}
       className={`${font} rounded-xl Button_${type}`}

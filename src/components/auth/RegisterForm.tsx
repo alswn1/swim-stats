@@ -81,7 +81,7 @@ const RegisterForm = () => {
       return;
     }
 
-    triggerToast('회원가입이 완료되었습니다. 이메일 인증 후 로그인해주세요.', 'success');
+    triggerToast('회원가입이 완료되었습니다. \n이메일 인증 후 로그인해주세요.', 'success');
 
     setLoading(false);
     setTimeout(() => {

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Calendar, MapPin, Ruler, Timer, Activity } from "lucide-react";
 import { PATHS } from "../constants/paths";
@@ -8,9 +8,14 @@ import ToastMsg from "./ToastMsg";
 
 type StrokeOption = { value: string; label: string };
 
-const Editor = () => {
+type EditorProps = {
+  logId?: number;
+};
+
+const Editor = ({ logId }: EditorProps) => {
   const nav = useNavigate();
-  const { addLog } = useUserLogs();
+  const { state, loadLogs, addLog, updateLog } = useUserLogs();
+  const isEdit = typeof logId === "number" && Number.isFinite(logId);
 
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
@@ -37,10 +42,37 @@ const Editor = () => {
     setToastMsg(msg);
     setToastType(type);
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 1500);
+    setTimeout(() => setShowToast(false), 1000);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    if (!isEdit) {
+      setDate(today);
+      setPool("");
+      setDistance(0);
+      setTime(0);
+      setStroke("");
+      setMemo("");
+      return;
+    }
+
+    const existing = state.logs.find((l) => l.id === logId);
+    if (!existing) {
+      void loadLogs().catch(() => {
+        // loadLogs 내부에서 error state 처리됨
+      });
+      return;
+    }
+
+    setDate(existing.date);
+    setPool(existing.pool);
+    setDistance(existing.distance);
+    setTime(existing.time);
+    setStroke(existing.stroke);
+    setMemo(existing.memo ?? "");
+  }, [isEdit, loadLogs, logId, state.logs, today]);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!date || !pool.trim() || !stroke) {
@@ -54,20 +86,31 @@ const Editor = () => {
 
     setLoading(true);
     try {
-      await addLog({
-        date,
-        pool: pool.trim(),
-        distance,
-        time,
-        stroke,
-        memo: memo.trim(),
-      });
-
-      triggerToast("새 수영 기록이 저장되었습니다.", "success");
-      setTimeout(() => nav(PATHS.LOG), 1200);
+      if (isEdit) {
+        await updateLog(logId, {
+          date,
+          pool: pool.trim(),
+          distance,
+          time,
+          stroke,
+          memo: memo.trim(),
+        });
+        triggerToast("수영 기록이 수정되었습니다.", "success");
+      } else {
+        await addLog({
+          date,
+          pool: pool.trim(),
+          distance,
+          time,
+          stroke,
+          memo: memo.trim(),
+        });
+        triggerToast("새 수영 기록이 저장되었습니다.", "success");
+      }
+      setTimeout(() => nav(PATHS.LOG), 1000);
     } catch (err) {
       console.log(err instanceof Error ? err.message : "원인불명");
-      triggerToast("저장에 실패했습니다.", "error");
+      triggerToast(isEdit ? "수정에 실패했습니다." : "저장에 실패했습니다.", "error");
     } finally {
       setLoading(false);
     }
@@ -76,7 +119,7 @@ const Editor = () => {
   return (
     <div className="flex flex-col items-center gap-8">
       <div className="do-hyeon w-1/2 min-w-96 card-bg rounded-xl p-5 flex flex-col gap-6 items-center">
-        <div className="black-han text-xl">새 수영 기록 쓰기</div>
+        <div className="black-han text-xl">{isEdit ? "수영 기록 수정하기" : "새 수영 기록 쓰기"}</div>
 
         <form className="w-full flex flex-col gap-5" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2">
@@ -87,6 +130,7 @@ const Editor = () => {
                 type="date"
                 required
                 className="w-full pl-10 py-3 pr-3 bg-white border border-slate-200 rounded-xl outline-none transition-all"
+                max={new Date().toISOString().split('T')[0]}
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
               />
@@ -181,7 +225,12 @@ const Editor = () => {
               loading={loading}
               onClick={() => nav(PATHS.LOG)}
             />
-            <Button text={loading ? "저장 중..." : "저장하기"} font="do-hyeon" type="CONFIRM" loading={loading} />
+            <Button
+              text={loading ? (isEdit ? "수정 중..." : "저장 중...") : isEdit ? "수정하기" : "저장하기"}
+              font="do-hyeon"
+              type="CONFIRM"
+              loading={loading}
+            />
           </div>
         </form>
       </div>

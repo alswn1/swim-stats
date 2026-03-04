@@ -45,7 +45,7 @@ const LoginForm = () => {
     if (error) {
       console.log(error.code);
       if (error.code === 'email_not_confirmed') triggerToast('이메일 인증 후에 로그인이 가능합니다.', 'error');
-      if (error.code === 'invalid_credentials') triggerToast('아이디와 비밀번호를 다시 사용해주세요.', 'error');
+      else if (error.code === 'invalid_credentials') triggerToast('아이디와 비밀번호를 다시 사용해주세요.', 'error');
       else triggerToast('로그인에 실패했습니다.', 'error');
     }
     setLoading(false);

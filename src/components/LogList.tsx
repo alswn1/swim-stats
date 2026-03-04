@@ -16,7 +16,7 @@ const LogList = () => {
           <div className='w-1/6'>거리</div>
           <div className='w-1/6'>시간</div>
           <div className='w-1/6'>영법</div>
-          <div className='w-1/6'>action</div>
+          <div className='w-1/6'></div>
         </div>
         <hr />
         <LogItem />
