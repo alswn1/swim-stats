@@ -1,14 +1,17 @@
-import Header from "../components/Header";
-import { useAuth } from "../contexts/AuthContext";
+import Header from "../components/common/Header";
+import DailySummaryCard from "../components/home/DailySummaryCard";
+import HistoryCalendarSection from "../components/home/HistoryCalendarSection";
+import WeeklyDistanceChart from "../components/home/WeeklyDistanceChart";
 
 const Home = () => {
-  const { user } = useAuth();
-  const username = user?.user_metadata?.name;
-
   return (
-    <div>
+    <div className="black-han">
       <Header />
-      {username}
+      <div className="flex flex-col gap-8 items-center">
+        <DailySummaryCard />
+        <WeeklyDistanceChart />
+        <HistoryCalendarSection />
+      </div>
     </div>
   )
 }
