@@ -146,6 +146,7 @@ export const UserLogProvider = ({ children }: { children: React.ReactNode }) => 
 
       const created = data as UserLog;
       dispatch({ type: "ADD_LOG", payload: created });
+      await supabase.auth.refreshSession();
       return created;
     },
     [user]
@@ -166,6 +167,7 @@ export const UserLogProvider = ({ children }: { children: React.ReactNode }) => 
 
     const updated = data as UserLog;
     dispatch({ type: "UPDATE_LOG", payload: updated });
+    await supabase.auth.refreshSession();
     return updated;
   }, []);
 
@@ -178,6 +180,7 @@ export const UserLogProvider = ({ children }: { children: React.ReactNode }) => 
     }
 
     dispatch({ type: "DELETE_LOG", payload: id });
+    await supabase.auth.refreshSession();
   }, []);
 
   // 로그인/로그아웃에 따라 자동 로드 or 비우기

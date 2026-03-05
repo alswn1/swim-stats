@@ -53,6 +53,8 @@ const RegisterForm = () => {
       options: {
         data: {
           name: name,
+          maxDistance: 0,
+          maxTime: 0,
         }
       }
     });

@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/AuthContext";
 const Home = () => {
   const { user } = useAuth();
   const username = user?.user_metadata?.name;
-  console.log(user);
 
   return (
     <div>

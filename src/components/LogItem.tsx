@@ -30,8 +30,11 @@ const LogItem = () => {
           <div className='w-1/6'>{log.date}</div>
           <div className='w-1/6'>{log.pool}</div>
           <div className='w-1/6'>{log.distance}m</div>
-          <div className='w-1/6'>{log.time}m</div>
-          <div className='w-1/6'>{log.stroke}</div>
+          <div className='w-1/6'>{log.time}분</div>
+          <div className='w-1/6'>{
+            log.stroke === 'freestyle' ? '자유형' :
+              log.stroke === 'backstroke' ? '배영' :
+                log.stroke === 'breaststroke' ? '평영' : '접영'}</div>
           <div className='flex items-center w-1/6'>
             <Edit
               className="h-4 text-blue-600 cursor-pointer"
