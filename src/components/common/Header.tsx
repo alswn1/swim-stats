@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { PATHS } from '../constants/paths';
+import { PATHS } from '../../constants/paths';
 
 const Header = () => {
   const active = 'text-blue-600';
@@ -7,7 +7,7 @@ const Header = () => {
 
   const { pathname } = useLocation();
 
-  const isLogActive = pathname === PATHS.NEW || pathname === PATHS.EDIT;
+  const isLogActive = pathname === PATHS.NEW || pathname.startsWith(PATHS.EDIT);
 
   return (
     <div className='black-han flex sub-bg flex-col mb-8'>

@@ -1,5 +1,5 @@
-import Editor from "../components/Editor"
-import Header from "../components/Header"
+import Editor from "../components/logs/Editor"
+import Header from "../components/common/Header"
 
 const NewLog = () => {
   return (

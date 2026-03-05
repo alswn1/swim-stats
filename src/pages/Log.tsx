@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Header from "../components/Header";
-import LogList from "../components/LogList";
+import Header from "../components/common/Header";
+import LogList from "../components/logs/LogList";
 import { useUserLogs } from "../contexts/UserLogContext";
 
 const Log = () => {

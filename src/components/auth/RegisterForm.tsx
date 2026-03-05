@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Button from "../Button";
-import ToastMsg from "../ToastMsg";
+import Button from "../common/Button";
+import ToastMsg from "../common/ToastMsg";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
 import { supabase } from "../../lib/supabase";

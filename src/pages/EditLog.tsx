@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import Editor from "../components/Editor";
-import Header from "../components/Header";
+import Editor from "../components/logs/Editor";
+import Header from "../components/common/Header";
 // import { PATHS } from "../constants/paths";
 
 const EditLog = () => {

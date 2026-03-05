@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/common/Header";
 import { supabase } from "../lib/supabase";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../constants/paths";
