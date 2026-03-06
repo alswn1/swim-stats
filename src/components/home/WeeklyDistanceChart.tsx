@@ -64,7 +64,7 @@ const WeeklyDistanceChart = () => {
           <XAxis dataKey="name" />
           <YAxis unit="m" />
           <Tooltip
-            formatter={(value) => [`${value}m`, '거리']}
+            formatter={(value) => [`${value?.toLocaleString()}m`, '거리']}
             labelStyle={{ color: '#333' }} />
           <Legend />
           <Bar dataKey="freestyle" name="자유형" stackId="a" fill="#007FC5" />

@@ -38,7 +38,7 @@ const Mypage = () => {
         <div className="text-2xl">개인 최고 기록</div>
         <div className="text-xl flex flex-row gap-10">
           <div>최장 수영 거리</div>
-          <div>{maxDistance} m</div>
+          <div>{maxDistance.toLocaleString()} m</div>
         </div>
         <div className="text-xl flex flex-row gap-10">
           <div>최장 수영 시간</div>
