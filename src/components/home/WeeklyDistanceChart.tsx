@@ -50,7 +50,7 @@ const WeeklyDistanceChart = () => {
   if (logs.length === 0) return <div>수영기록을 작성해주세요</div>;
 
   return (
-    <div className="w-1/3 min-w-96 h-96">
+    <div className="w-1/3 min-w-[420px] h-96">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={chartData}

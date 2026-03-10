@@ -9,7 +9,7 @@ const DailySummaryCard = () => {
   const nav = useNavigate();
 
   return (
-    <div className="w-1/3 min-w-96 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg p-5 text-white">
+    <div className="w-1/3 min-w-[420px] bg-gradient-to-r from-blue-600 to-cyan-400 rounded-lg p-5 text-white">
       {
         user?.user_metadata.hasLoggedToday ? (
           <div>
