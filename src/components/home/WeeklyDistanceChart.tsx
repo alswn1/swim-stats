@@ -57,12 +57,12 @@ const WeeklyDistanceChart = () => {
           margin={{
             top: 20,
             right: 30,
-            left: 0,
+            left: 30,
             bottom: 5,
           }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis unit="m" />
+          <YAxis unit="m" domain={[0, 'auto']} />
           <Tooltip
             formatter={(value) => [`${value?.toLocaleString()}m`, '거리']}
             labelStyle={{ color: '#333' }} />
