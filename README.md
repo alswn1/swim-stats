@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# 🏊‍♂️ Swim-Stats: Swimmer's Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Swim-Stats**는 수영 기록을 체계적으로 관리하고, 주변 수영장 위치를 한눈에 파악할 수 있는 개인 맞춤형 대시보드 웹 서비스입니다. 
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 프로젝트 개요
+수영은 기록의 스포츠입니다. 하지만 여러 수영장을 이용하거나 매일의 영법별 거리를 관리하기는 번거롭습니다.<br/>
+**Swim-Stats**는 사용자가 본인의 수영 데이터를 시각적으로 확인할 수 있도록 돕습니다.
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- **Framework:** React (TypeScript)
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Library:**
+  - `Recharts` (데이터 시각화)
+  - `Lucide-react` (아이콘)
+  - `date-fns` (날짜 연산)
 
-## Expanding the ESLint configuration
+### Backend & Infrastructure
+- **BaaS:** Supabase (Auth, Database)
+- **Maps:** Kakao Maps API
+- **Pools data:** 공공데이터포털
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Key Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. 개인 수영 기록 대시보드 (Data Visualization)
+- `Recharts`를 활용하여 최근 7일간의 기록을 **Stacked Bar Chart**로 시각화합니다.
+- 자유형, 배영, 평영, 접영 등 영법별 거리를 누적하여 표시하며, 데이터 양에 따라 Y축 범위를 자동으로 조절하여 가독성을 높였습니다.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 2. 수영장 탐색 (Map Service)
+- **공공데이터포털 수영장 api**를 연동하여 영업중인 수영장 정보를 불러옵니다.
+- **Kakao Map API**를 연동하여 수영장명 또는 지역을 검색하고 지도 위에 마커로 표시합니다.
+- 사용자가 방문할 수영장의 위치 정보를 직관적으로 파악할 수 있습니다.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. 수영 로그 관리 (CRUD)
+- 영법, 거리(m), 시간 등을 상세히 기록하고 관리합니다.
+- **Supabase**와 실시간 연동되어 데이터가 안전하게 저장되며, 사용자별 맞춤형 통계를 제공합니다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 4. 사용자 인증 (Authentication)
+- **Supabase Auth**를 통해 이메일 기반 회원가입 및 로그인 기능을 제공합니다.
+- 개인별 독립된 데이터 공간을 확보하여 보안성을 강화했습니다.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📋 화면 구성 (Screenshots)
+(여기에 실제 프로젝트 캡처 이미지를 넣으시면 좋습니다!)
+| 주간 통계 차트 | 수영장 위치 지도 | 기록 입력 폼 |
+| :---: | :---: | :---: |
+|  |  |  |
+
+
+---
+
+## 📎 Link
+
+### https://swim-stats.vercel.app/
