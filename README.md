@@ -144,7 +144,7 @@
   </tr>
   <tr>
     <td align="center" valign="top">
-      <img width="1561" height="517" alt="image" src="https://github.com/user-attachments/assets/d3428521-445a-4b61-910a-a605700b67c2" />
+      <img width="730" height="517" src="https://github.com/user-attachments/assets/2948f600-4842-46be-923f-40296450abe0" />
     </td>
     <td align="center" valign="top">
       <img width="274" height="58" alt="image" src="https://github.com/user-attachments/assets/d3f111c9-1034-4e34-8fa6-8cb019c6f4af" />
