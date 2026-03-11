@@ -139,13 +139,10 @@
 
 <table>
   <tr>
-    <th align="center" colspan="2">마이페이지</th>
+    <th align="center">마이페이지</th>
     <th align="center">개인별 맞춤 메시지</th>
   </tr>
   <tr>
-    <td align="center" valign="top">
-      <img width="1563" height="566" alt="image" src="https://github.com/user-attachments/assets/243a10e8-4c5c-4d6a-bad7-558bd64bfc53" />
-    </td>
     <td align="center" valign="top">
       <img width="1561" height="517" alt="image" src="https://github.com/user-attachments/assets/d3428521-445a-4b61-910a-a605700b67c2" />
     </td>
