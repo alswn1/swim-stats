@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useUserLogs } from "../../contexts/UserLogContext"
 import { format, isAfter, isSameDay, parseISO } from "date-fns";
 import { DayPicker, getDefaultClassNames } from "react-day-picker";
@@ -18,7 +18,9 @@ const HistoryCalendarSection = () => {
   const loggedDays = logs.map(log => parseISO(log.date));
 
   // 선택된 날짜의 기록들만 필터링
-  const selectedLogs = logs.filter(log => selectedDay && isSameDay(parseISO(log.date), selectedDay));
+  const selectedLogs = useMemo(() => {
+    return logs.filter(log => selectedDay && isSameDay(parseISO(log.date), selectedDay));
+  }, [logs, selectedDay]);
 
   if (loading) return <div>불러오는 중...</div>;
   if (error) return <div>블러오기 실패</div>;
